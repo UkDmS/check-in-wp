@@ -27,6 +27,7 @@ class check
             $records = get_post_meta($post->ID,'available',true);
             if($records==='')
             {
+                // $n = $wpdb->query("insert into wp_999postmeta (`meta_value`,`meta_key`,`post_id`) values('','available',$post->ID)");
                 $a[0] = "yes";
                 $b = "'".serialize($a)."'";
                 $newest = $wpdb->query("update wp_999postmeta set `meta_value` = {$b} where post_id=$post->ID and meta_key='available'");
